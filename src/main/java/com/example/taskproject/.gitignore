@@ -1,0 +1,24 @@
+# Compiled Java classes
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+
+# Maven folder
+target/
+
+# IntelliJ IDEA settings
+.idea/
+*.iml
+out/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Sensitive config (be careful with this one)
+# application.properties
