@@ -1,22 +1,24 @@
 package com.example.taskproject;
 
-import org.springframework.boot.SpringApplication;
+import com.example.taskproject.entity.Taskdata;
+import com.example.taskproject.repository.TaskRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
+
 @Service
-public class TaskService
-{
-    @GetMapping("/reports")
-    public String getReports()
-    {
-        return "[SERVICE LAYER RESPONSE] MADE A TRANSACTION WITH TRANSACTION ID TR43484";
+public class TaskService {
+
+    private final TaskRepository taskRepository;
+
+    public TaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
     }
 
-    @GetMapping("/logs")
-    public String getlogs()
-    {
-        return"[SERVICE LAYER RESPONSE] AUTH-7:35-LOGIN";
+    public List<Taskdata> getReports() {
+        return taskRepository.findAll();
     }
 
-
+    public String getlogs() {
+        return "[SERVICE LAYER RESPONSE] BANKING-SYSTEM-FETCH-SUCCESS";
+    }
 }
