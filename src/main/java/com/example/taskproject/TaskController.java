@@ -23,4 +23,19 @@ public class TaskController {
     public String getlogs() {
         return taskService.getlogs();
     }
+    @GetMapping("/addlogs")
+    public String addlogs()
+    {
+        return taskService.addlogs();
+    }
+    @GetMapping ("/first5")
+    public List<Taskdata> getFirst5()
+    {
+        return taskService.getTasks();
+    }
+    @GetMapping ("/greaterthan")
+    public List<Taskdata> findByLoanAmountGreaterThanEqual()
+    {
+        return taskService.greaterthan(30000.00);
+    }
 }

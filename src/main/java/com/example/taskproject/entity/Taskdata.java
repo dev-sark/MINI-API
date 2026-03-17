@@ -12,6 +12,9 @@ public class Taskdata {
     @Column(name = "customer_id")
     private Long id;
 
+    @Column(name = "branch_name")
+    private String branchname;
+
     @Column(name = "customer_name")
     private String taskName;
 
@@ -23,21 +26,36 @@ public class Taskdata {
 
     // Fields to match the rest of the view
     private String email;
+    @Column(name= "loan_amount")
     private Double loanAmount;
 
     public Taskdata() {}
 
     // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getTaskName() { return taskName; }
-    public void setTaskName(String taskName) { this.taskName = taskName; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-    public Double getValue() { return value; }
-    public void setValue(Double value) { this.value = value; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public Double getLoanAmount() { return loanAmount; }
-    public void setLoanAmount(Double loanAmount) { this.loanAmount = loanAmount; }
+    public String getbranchname()
+    {return branchname;}
+    public Long getId()
+    { return id; }
+    public void setId(Long id)
+    { this.id = id; }
+    public String getTaskName()
+    { return taskName; }
+    public void setTaskName(String taskName)
+    { this.taskName = taskName; }
+    public String getDescription()
+    { return description; }
+    public void setDescription(String description)
+    { this.description = description; }
+    public Double getValue()
+    { return value; }
+    public void setValue(Double value)
+    { this.value = value; }
+    public String getEmail()
+    { return email; }
+    public void setEmail(String email)
+    { this.email = email; }
+    public Double getLoanAmount()
+    { return loanAmount; }
+    public void setLoanAmount(Double loanAmount)
+    { this.loanAmount = loanAmount; }
 }
