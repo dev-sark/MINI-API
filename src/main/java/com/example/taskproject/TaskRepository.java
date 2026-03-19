@@ -11,6 +11,8 @@ public interface TaskRepository extends JpaRepository<Taskdata, Long> {
     List<Taskdata> findFirst5By();
     // Spring Data handles the SQL generation automatically
     List<Taskdata> findByLoanAmountGreaterThanEqual (Double Amount);
+    List<Taskdata> findByValue(Double Value);
 
-    List<Taskdata> findBranchesBy();
+
+
 }

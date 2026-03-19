@@ -1,10 +1,10 @@
 package com.example.taskproject;
-import java.util.Scanner;
 
 import com.example.taskproject.entity.Taskdata;
 import com.example.taskproject.repository.TaskRepository;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,10 +16,11 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public List<Taskdata> getReports() {
+    public List<Taskdata> getaccounts() {
         return taskRepository.findAll();
     }
-    public List<Taskdata> getTasks() {
+    public List<Taskdata> getfirstfivedata()
+    {
         return taskRepository.findFirst5By();
     }
 
@@ -28,7 +29,8 @@ public class TaskService {
         return taskRepository.findByLoanAmountGreaterThanEqual(30000.00);
     }
 
-    public String getlogs() {
+    public String getlogs()
+    {
         return "[SERVICE LAYER RESPONSE] BANKING-SYSTEM-FETCH-SUCCESS";
     }
     public String addlogs()
@@ -42,7 +44,38 @@ public class TaskService {
             return"[SERVICE LAYER RESPONSE] TASK FOUND";
         }
 
+    }
 
-       // return "logs added";
+    public String pearl()
+    {
+        return "Only show it to pearl ";
+    }
+    public List<String> getaccountstatus() {
+        // 1. Fetch every customer from the database
+        List<Taskdata> allCustomers = taskRepository.findAll();
+
+        // 2. Create a list to hold the names and their new labels
+        List<String> statusList = new ArrayList<>();
+
+        // 3. Loop through every customer and apply the "Express" rule
+        for (Taskdata customer : allCustomers) {
+
+            String label;
+
+            // This is your core logic
+            if (customer.getValue() != null && customer.getValue() >= 50000) {
+                label = "Express";
+            } else {
+                label = "Standard";
+            }
+
+            // 4. Add the formatted result to our list
+            statusList.add(customer.getTaskName() + " Status: " + label);
+        }
+
+        return statusList;
     }
 }
+
+
+
